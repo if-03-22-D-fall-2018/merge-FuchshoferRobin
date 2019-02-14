@@ -25,7 +25,10 @@ int main(int argc, char* argv[])
     read_array(second_array, n_second);
     merge(first_array, n_first, second_array, n_second, merged_array);
     print_array(merged_array, n_first + n_second);
+
+
   }
+  return 0;
 }
 
 void read_array(int* array, int n)
@@ -45,4 +48,32 @@ void print_array(int* array, int n)
 
 void merge(int* first_array, int n_first, int* second_array, int n_second, int* merged_array)
 {
+     int count1 = 0;
+     int count2 = 0;
+     int count3 = 0;
+
+     while (count1 < n_first && count2 <n_second)
+     {
+         if (first_array[count1] < second_array[count2])
+         {
+             merged_array[count3++] = first_array[count1++];
+         }
+         else
+         {
+             merged_array[count3++] = second_array[count2++];
+         }
+
+     }
+
+     while (count1 < n_first)
+     {
+         merged_array[count3++] = first_array[count1++];
+     }
+
+     while (count2 < n_second)
+     {
+         merged_array[count3++] = second_array[count2++];
+     }
+
+
 }
